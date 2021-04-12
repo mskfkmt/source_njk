@@ -1,0 +1,14 @@
+  {%- include '_layouts/_default.njk' -%}
+  {%- include '_partials/_script-head.njk' -%}
+<body>
+  <div id="{{ pagename_en }}" class="{{ pagename_en }}">
+    <div class="wrapper">
+      <main>
+        {% block contents %}{% endblock %}
+      </main>
+    </div>
+  </div>
+   {%- include '_partials/_footer.njk' -%}
+   {%- include '_partials/_script-footer.njk' -%}
+</body>
+</html>
