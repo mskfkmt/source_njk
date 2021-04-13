@@ -143,27 +143,3 @@ exports.dev = series(tmp, images, css, js, serve, watchFiles);
 
 // build（HTML, CSS, JS）
 exports.build = series(tmp, css, js);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
