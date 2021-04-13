@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@mixin color-red {
+  color: #D1001A;
+}
+
+@mixin color-white {
+  color: #fff;
+}
+
+@mixin color-mdBlack {
+  color: #323232;
+}
+
+@mixin color-black {
+  color: #000;
+}

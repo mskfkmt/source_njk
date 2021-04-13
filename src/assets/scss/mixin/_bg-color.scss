@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@mixin bg-color-red {
+  background-color: #D1001A;
+}
+
+@mixin bg-color-mdGray {
+  background-color: #A7B6BC;
+}
+
+@mixin bg-color-gray {
+  background-color: #F0F0F0;
+}
+
+@mixin bg-color-mdPink {
+  background-color: #FBEAEB;
+}
+
+@mixin bg-color-white {
+  background-color: #fff;
+}
+
+@mixin bg-color-black {
+  background-color: #000;
+}
+
+@mixin bg-color-mdBlack {
+  background-color: #323232;
+}

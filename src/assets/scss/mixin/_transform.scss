@@ -1,0 +1,56 @@
+@mixin pos-x-lt0 {
+  position: absolute;
+  left: 0;
+}
+
+@mixin pos-y-tp0 {
+  position: absolute;
+  top: 0;
+}
+
+@mixin pos-xy-ltp0 {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@mixin pos-x-rt0 {
+  position: absolute;
+  right: 0;
+}
+
+@mixin pos-y-btm0 {
+  position: absolute;
+  bottom: 0;
+}
+
+@mixin pos-xy-rb0 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin pos-x-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin pos-x-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin pos-y-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin pos-xy-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

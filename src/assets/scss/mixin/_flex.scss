@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+@mixin df-x-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin df-y-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin df-xy-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin df-spbw {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin df-spar {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin df-dir-clmn {
+  display: flex;
+  flex-direction: column;
+}
