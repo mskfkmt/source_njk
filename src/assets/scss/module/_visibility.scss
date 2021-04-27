@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@include mq('min', 'tablet') {
+  .vis-sp {
+    display: none !important;
+  }
+}
+
+@include mq('max', 'tablet') {
+  .vis-pc {
+    display: none !important;
+  }
+}

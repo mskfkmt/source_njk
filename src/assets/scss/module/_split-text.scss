@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.split-text {
+  overflow: hidden;
+  span {
+    transform: translateY(100%);
+    display: inline-block;
+    opacity: 0;
+  }
+}
+
+.is-show,
+.is-active,
+.is-open {
+  .split-text,
+  &.split-text {
+    span {
+      transform: translateY(0);
+      opacity: 1;
+      transition: opacity .8s ease, transform .8s ease;
+    }
+  }
+}

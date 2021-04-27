@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @mixin resp-w($width, $base) {
-  width: ($width / $base) * 100%;
+  width: ($width / $base) * 100vw;
 }
 
 @mixin resp-h($width, $ratio, $base) {
@@ -9,35 +9,35 @@
 }
 
 @mixin resp-pt($target, $base) {
-  padding-top: ($target / $base) * 100%;
+  padding-top: ($target / $base) * 100vw;
 }
 
 @mixin resp-pb($target, $base) {
-  padding-bottom: ($target / $base) * 100%;
+  padding-bottom: ($target / $base) * 100vw;
 }
 
 @mixin resp-pl($target, $base) {
-  padding-left: ($target / $base) * 100%;
+  padding-left: ($target / $base) * 100vw;
 }
 
 @mixin resp-pr($target, $base) {
-  padding-right: ($target / $base) * 100%;
+  padding-right: ($target / $base) * 100vw;
 }
 
 @mixin resp-mt($target, $base) {
-  margin-top: ($target / $base) * 100%;
+  margin-top: ($target / $base) * 100vw;
 }
 
 @mixin resp-mb($target, $base) {
-  margin-bottom: ($target / $base) * 100%;
+  margin-bottom: ($target / $base) * 100vw;
 }
 
 @mixin resp-ml($target, $base) {
-  margin-left: ($target / $base) * 100%;
+  margin-left: ($target / $base) * 100vw;
 }
 
 @mixin resp-mr($target, $base) {
-  margin-right: ($target / $base) * 100%;
+  margin-right: ($target / $base) * 100vw;
 }
 
 @mixin ml-auto {
@@ -71,5 +71,11 @@
 @mixin bg-img($target-x, $target-y) {
   background-size: cover;
   background-position: (target-x, target-y);
+  background-repeat: no-repeat;
+}
+
+@mixin bg-img-center {
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }

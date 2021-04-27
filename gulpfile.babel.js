@@ -19,16 +19,24 @@ const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const postcss = require('gulp-postcss');
 
+// Concating
+const concat = require('gulp-concat');
+
 // JavaScript
 const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
+const plumber = require('gulp-plumber');
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
 
 const filepath = { src: 'src/', dist: 'htdocs/' };
 const filesrc = {
   tmp: [`${filepath.src}templates/_pages/*.njk`, `${filepath.src}templates/_pages/**/*.njk`, `${filepath.src}templates/_pages/**/**/*.njk`, `!${filepath.src}templates/_parts/**/*.njk`, `!${filepath.src}templates/**/_*.njk`, `!${filepath.src}templates/_data/*.json`],
   imgs: [`${filepath.src}assets/img/**`, `${filepath.src}assets/img/**/*.{jpg,png,svg}`],
   css: [`${filepath.src}assets/scss/*.scss`, `${filepath.src}assets/scss/_*.scss`,`${filepath.src}assets/scss/**/_*.scss`],
-  js: `${filepath.src}assets/js/*.js`
+  vendor: `${filepath.src}assets/js/vendor/*`,
+  js: `${filepath.src}assets/js/**/*.js`
 };
 
 
@@ -108,19 +116,19 @@ const css = () => {
     .pipe(dest(`${filepath.dist}assets/css/`));
 }
 
+// configタスク
+const concatJs = () => {
+  return src(filesrc.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(dest(`${filepath.dist}assets/js/`));
+}
 
 // JavaScirptタスク
 const js = () => {
   return src(filesrc.js)
-    .pipe(
-      babel({
-        presets: ['@babel/preset-env']
-        })
-      )
-    .pipe(uglify())
+    .pipe(webpackStream(webpackConfig, webpack))
     .pipe(dest(`${filepath.dist}assets/js/`));
 };
-
 
 // ファイルの変更監視＆タスクを自動で実行
 const watchFiles = () => {
@@ -139,7 +147,7 @@ exports.js = js;
 
 
 // dev(開発用ビルド)
-exports.dev = series(tmp, images, css, js, serve, watchFiles);
+exports.dev = series(tmp, images, css, concatJs, js, serve, watchFiles);
 
 // build（HTML, CSS, JS）
-exports.build = series(tmp, css, js);
+exports.build = series(tmp, css, concatJs, js);

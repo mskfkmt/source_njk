@@ -1,3 +1,7 @@
+@charset "UTF-8";
+/* ブレイクポイントの初期設定 */
+/* Mixin */
+/* pxからemに変換 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body { margin: 0; font-feature-settings: "palt" 1; -ms-overflow-style: none; }
@@ -47,3 +51,13 @@ a { display: block; font-size: 0; text-decoration: none; border: none; }
 .globalHeader { padding: 0 20px; }
 
 .globalHeader h1 { font-size: 20px; line-height: 2; letter-spacing: .04em; color: #fff; }
+
+.split-text { overflow: hidden; }
+
+.split-text span { transform: translateY(100%); display: inline-block; opacity: 0; }
+
+.is-show .split-text span, .is-show.split-text span, .is-active .split-text span, .is-active.split-text span, .is-open .split-text span, .is-open.split-text span { transform: translateY(0); opacity: 1; transition: opacity .8s ease, transform .8s ease; }
+
+@media (min-width: 48.0625em) { .vis-sp { display: none !important; } }
+
+@media (max-width: 48em) { .vis-pc { display: none !important; } }

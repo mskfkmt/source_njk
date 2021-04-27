@@ -4,19 +4,22 @@
  * ブレイクポイントの初期設定
  */
 
-$breakpoints: ('mobile-sm': 320, 'mobile': 480, 'mobile-lg': 640, 'tablet-sm': 750, 'tablet': 768, 'tablet-lg': 840, 'tablet-xl': 900, 'desktop-sm': 1024, 'desktop': 1200, 'desktop-md': 1440,  'desktop-lg': 1920) !default;
+$breakpoints: ('mobile-sm': 320, 'mobile': 480, 'mobile-lg': 640, 'tablet-sm': 750, 'tablet': 768, 'tablet-lg': 840, 'tablet-xl': 900, 'desktop-sm': 1024, 'desktop': 1200, 'desktop-2': 1281, 'desktop-md': 1440,  'desktop-lg': 1920) !default;
 
 /*
  * Mixin
  */
 
-@mixin mq($mq, $bp1: tablet, $bp2: desktop) {
+@mixin mq($mq, $bp1: tablet, $bp2: desktop-2, $bp3: desktop-sm) {
   $w1: map-get($breakpoints, $bp1);
   $w2: map-get($breakpoints, $bp2);
+  $w3: map-get($breakpoints, $bp3);
   $min1: 'min-width: #{convert-em($w1, 1)}';
-  $min2: 'min-width: #{convert-em($w1, 1)}';
+  $min2: 'min-width: #{convert-em($w2, 1)}';
+  $min3: 'min-width: #{convert-em($w3, 1)}';
   $max1: 'max-width: #{convert-em($w1)}';
   $max2: 'max-width: #{convert-em($w2)}';
+  $max3: 'max-width: #{convert-em($w3)}';
 
   @if $mq==min {
     @media ($min1) {
